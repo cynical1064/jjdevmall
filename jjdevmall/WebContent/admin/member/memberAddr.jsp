@@ -25,8 +25,7 @@
 	
 	conn = DriverManager.getConnection(url, dbUser, dbPw);
 	
-	
-	String listSql = "select m.member_id, m.member_name, a.member_address from member m inner join address a on m.member_no = ?;";
+	String listSql = "select DISTINCT m.member_id, m.member_name, a.member_address from member m inner join address a where m.member_no = ?";
 	PreparedStatement pstmt = conn.prepareStatement(listSql);
 	pstmt.setInt(1, memberNo);
 	ResultSet rs = pstmt.executeQuery();
@@ -35,18 +34,11 @@
 	
 %>	
 <table>
-<%
-	while(rs.next()){
-		
-%>		
 	<tr>
 		<td><%=rs.getString("m.member_id") %></td>
 		<td><%=rs.getString("m.member_name") %></td>
 		<td><%=rs.getString("a.member_address") %></td>
 	</tr>
-<%		
-	}
-%>
 </table>
 </body>
 </html>
