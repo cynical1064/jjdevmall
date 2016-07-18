@@ -30,14 +30,12 @@
 	String dbPw = "java0000";
 	
 	Connection conn = null;
-	PreparedStatement delStmt = null;
 	PreparedStatement insertStmt = null;
+
+	PreparedStatement addrInsertStmt = null;
+	
 	int chkRs = 0;
-	
-	
-	
-	
-	
+	ResultSet rs = null;
 	try{		
 		
 		Class.forName(driver);
@@ -55,7 +53,7 @@
 		insertStmt.setInt(5, memberAge);
 		
 		chkRs = insertStmt.executeUpdate();
-		ResultSet rs = insertStmt.getGeneratedKeys();
+		rs = insertStmt.getGeneratedKeys();
 		int lastKey = 0;
 		if(rs.next()){
 			
@@ -65,15 +63,9 @@
 		
 		System.out.println(chkRs+"<--chkRs");
 		
-		if(chkRs > 0 ){	
+		if(chkRs > 0 ){
 			
-			String findIdSql = null;
 			String insertAddrSql = null;
-			
-			PreparedStatement findStmt = null;
-			PreparedStatement addrInsertStmt = null;
-			ResultSet findRs = null;
-			
 			insertAddrSql = "insert into address(member_no, member_address) values (?,?)";
 			addrInsertStmt = conn.prepareStatement(insertAddrSql);			
 			addrInsertStmt.setInt(1, lastKey);
@@ -90,6 +82,12 @@
 		conn.rollback();
 		e.printStackTrace();
 	
+	}finally{
+		
+		rs.close();
+		addrInsertStmt.close();
+		insertStmt.close();
+		conn.close();
 	}
 
 %>
