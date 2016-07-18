@@ -25,20 +25,26 @@
 	
 	conn = DriverManager.getConnection(url, dbUser, dbPw);
 	
-	String listSql = "select DISTINCT m.member_id, m.member_name, a.member_address from member m inner join address a where m.member_no = ?";
+	String listSql = "select m.member_no, m.member_id, m.member_name, a.member_address from member m inner join address a where m.member_no = a.member_no";
 	PreparedStatement pstmt = conn.prepareStatement(listSql);
-	pstmt.setInt(1, memberNo);
 	ResultSet rs = pstmt.executeQuery();
 	
 	System.out.println(rs.next());
-	
+	System.out.println(rs.getInt("m.member_no")+"<--member_no");
 %>	
 <table>
-	<tr>
-		<td><%=rs.getString("m.member_id") %></td>
-		<td><%=rs.getString("m.member_name") %></td>
-		<td><%=rs.getString("a.member_address") %></td>
-	</tr>
+	<%while(rs.next()){
+		if(rs.getInt("m.member_no") == memberNo){
+	%>
+		<tr>
+			<td><%=rs.getString("m.member_id") %></td>
+			<td><%=rs.getString("m.member_name") %></td>
+			<td><%=rs.getString("a.member_address") %></td>
+		</tr>
+	<%
+		}
+	}
+	%>
 </table>
 </body>
 </html>
