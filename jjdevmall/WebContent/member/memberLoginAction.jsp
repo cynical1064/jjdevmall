@@ -43,6 +43,7 @@
 		if(loginRs.next()){
 			
 			String chkMemberId = loginRs.getString("member_id");
+			
 			System.out.println("로그인 성공");
 			session.setAttribute("loginMemberChk", chkMemberId);
 			

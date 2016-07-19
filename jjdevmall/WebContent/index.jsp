@@ -51,9 +51,9 @@ if(loginMemberChk == null){
 <%	
 }else{
 %>
-<span><%=loginMemberChk %>님 로그인</span>
-<a href="">개인정보</a>
-<a href="<%= request.getContextPath()%>/member/memberLogoutAction.jsp">로그아웃</a>
+	<span><%=loginMemberChk %>님 로그인</span>
+	<a href="<%= request.getContextPath()%>/member/memberOne.jsp?memberId=<%=loginMemberChk %>">개인정보</a>
+	<a href="<%= request.getContextPath()%>/member/memberLogoutAction.jsp">로그아웃</a>
 <%
 }
 %>
