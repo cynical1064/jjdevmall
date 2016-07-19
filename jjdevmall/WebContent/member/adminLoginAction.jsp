@@ -24,6 +24,8 @@
 	PreparedStatement stmt = null;
 	ResultSet rs = null;
 	
+try{	
+	
 	Class.forName(driver);
 	
 	conn = DriverManager.getConnection(url, dbUser, dbPw);
@@ -78,11 +80,20 @@
 			
 			<%				
 			
-		}
-			
+		}			
 		
 	}
 	
+}catch(Exception e){
+	
+	
+}finally{
+	
+	rs.close();
+	stmt.close();
+	conn.close();
+	
+}	
 %>
 </body>
 </html>

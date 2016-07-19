@@ -11,7 +11,6 @@
 
 	int memberNo = Integer.parseInt(request.getParameter("memberNo"));
 	System.out.println(memberNo+"<--memberNo");
-
 	
 	String driver = "com.mysql.jdbc.Driver";
 	String url = "jdbc:mysql://localhost:3306/jjdevmall?"+"useUnicode=true&characterEncoding=euckr";
@@ -31,6 +30,7 @@
 	
 	System.out.println(rs.next());
 	System.out.println(rs.getInt("m.member_no")+"<--member_no");
+	
 %>	
 <table>
 	<%do{

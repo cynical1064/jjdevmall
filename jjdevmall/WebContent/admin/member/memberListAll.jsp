@@ -9,6 +9,23 @@
 <script>
 	$(document).ready(function(){
 		
+		$('#loginBtn').click(function(){
+			
+			if($('#adminId').val()=='' || $('#adminPw').val() == ''){
+				
+				alert('아이디와 비번을 입력해주세요');
+				
+			}else{
+				
+				$('form').submit();
+				
+			}
+			
+		})
+		
+	});
+/* 	$(document).ready(function(){
+		
 		$('.memberId').hover(function(){
 			
 			var hiddenIdx = $('.memberId').index(this);			
@@ -21,8 +38,8 @@
 			
 		});
 		
-	});
-</script>
+	}); */
+</script> 
 </head>
 <body>
 
@@ -90,7 +107,8 @@
 		<th>이름</th>
 		<th>성별</th>
 		<th>나이</th>
-		<th>주소</th>
+		<!-- <th>주소</th> -->
+		<th>삭제</th>
 	</tr>
 	
 	<%	
@@ -102,7 +120,8 @@
 		<td><%= rs.getString("member_name") %></td>
 		<td><%= rs.getString("member_gender") %></td>
 		<td><%= rs.getInt("member_age") %></td>
-		<td class="thisAddr" style="display:none;"><%= rs.getInt("member_no")%></td>
+		<%-- <td class="thisAddr" style="display:none;"><%= rs.getInt("member_no")%></td> --%>
+		<td><a href="./memberDeleteAction.jsp?memberNo=<%= rs.getInt("member_no")%>">강퇴</a></td>
 	</tr>
 	<%		
 		}
