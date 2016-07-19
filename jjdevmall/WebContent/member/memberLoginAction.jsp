@@ -43,10 +43,11 @@
 		if(loginRs.next()){
 			
 			String chkMemberId = loginRs.getString("member_id");
+			int memberNo = loginRs.getInt("member_no");
 			
 			System.out.println("로그인 성공");
 			session.setAttribute("loginMemberChk", chkMemberId);
-			
+			session.setAttribute("memberNo", memberNo);
 			response.sendRedirect(request.getContextPath()+"/index.jsp");
 			
 		}else{

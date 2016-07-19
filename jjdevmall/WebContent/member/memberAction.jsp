@@ -76,7 +76,7 @@
 		}
 		
 		conn.commit();
-		response.sendRedirect(request.getContextPath()+"/admin/member/memberListAll.jsp");
+		response.sendRedirect(request.getContextPath()+"/index.jsp");
 	}catch(Exception e){
 		
 		conn.rollback();

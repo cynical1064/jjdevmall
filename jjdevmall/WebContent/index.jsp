@@ -28,7 +28,9 @@
 <body>
 <%
 
-	String loginMemberChk = (String)session.getAttribute("loginMemberChk");
+	String loginMemberChk = (String)session.getAttribute("loginMemberChk");	
+	
+	System.out.println(loginMemberChk);
 
 %>
 
@@ -50,6 +52,7 @@ if(loginMemberChk == null){
 		</div>
 	</form>
 	<a href="<%= request.getContextPath()%>/admin/adminIndex.jsp">관리자 로그인</a>
+	<a href="<%= request.getContextPath()%>/member/memberAddForm.jsp">회원가입</a>
 	<div>
 		<ul>
 			<li><a href="<%= request.getContextPath()%>/member/item/itemList.jsp">상품 리스트</a></li>

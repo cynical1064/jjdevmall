@@ -20,7 +20,9 @@
 <% 
 
 	String loginMemberChk = (String)session.getAttribute("loginMemberChk");
-
+	
+	System.out.println(loginMemberChk);
+	
 	Connection conn = null;	
 	PreparedStatement listStmt = null;	
 	ResultSet listRs = null;
