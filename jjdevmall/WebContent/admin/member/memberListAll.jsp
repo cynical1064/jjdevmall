@@ -73,7 +73,7 @@
 	<span><%=loginChk %>님 로그인</span><span><a href="<%= request.getContextPath()%>/member/adminLogoutAction.jsp">로그아웃</a></span>
 	
 	<ul>
-		<li><a href="">상품관리</a></li>
+		<li><a href="<%= request.getContextPath()%>/admin/item/itemList.jsp">상품관리</a></li>
 		<li><a href="">주문관리</a></li>
 		<li><a href="<%= request.getContextPath()%>/admin/member/memberListAll.jsp">회원관리</a></li>
 	</ul>

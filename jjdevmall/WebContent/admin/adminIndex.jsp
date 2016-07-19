@@ -36,6 +36,7 @@
 if(loginChk == null){
 
 %>
+<h2>관리자 로그인</h2>
 <form action="<%= request.getContextPath()%>/member/adminLoginAction.jsp" method="post">
 	<div>
 		<label for="adminId">아이디</label>
@@ -56,7 +57,7 @@ if(loginChk == null){
 	<span><%=loginChk %>님 로그인</span><span><a href="<%= request.getContextPath()%>/member/adminLogoutAction.jsp">로그아웃</a></span>
 	
 	<ul>
-		<li><a href="">상품관리</a></li>
+		<li><a href="<%= request.getContextPath()%>/admin/item/itemList.jsp">상품관리</a></li>
 		<li><a href="">주문관리</a></li>
 		<li><a href="<%= request.getContextPath()%>/admin/member/memberListAll.jsp">회원관리</a></li>
 	</ul>
