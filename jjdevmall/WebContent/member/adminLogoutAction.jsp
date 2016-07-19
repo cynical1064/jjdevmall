@@ -6,6 +6,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<%
+	session.invalidate();
+%>
+<script>
+	alert("로그아웃 되었습니다.");
+	location.href = "<%=request.getContextPath()%>/admin/adminIndex.jsp";
+</script>
 </body>
 </html>

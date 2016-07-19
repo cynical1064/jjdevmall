@@ -33,7 +33,7 @@
 	System.out.println(rs.getInt("m.member_no")+"<--member_no");
 %>	
 <table>
-	<%while(rs.next()){
+	<%do{
 		if(rs.getInt("m.member_no") == memberNo){
 	%>
 		<tr>
@@ -43,7 +43,7 @@
 		</tr>
 	<%
 		}
-	}
+	}while(rs.next());
 	%>
 </table>
 </body>
